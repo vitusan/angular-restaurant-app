@@ -3,19 +3,21 @@
     <div class="row my-3">
       <div class="col-8 col-md-7">
         <label for="name" class="form-label">Name</label>
-        <input type="email" class="form-control" id="name" name="name">
+        <input type="email" class="form-control" id="name" name="name"
+        #nameInput>
       </div>
       <div class="col-4 col-md-2 col-lg-2 col-xxl-1">
         <label for="amount" class="form-label">Qty</label>
-        <input type="number" class="form-control" id="amount" name="amount">
+        <input type="number" class="form-control" id="amount" name="amount"
+        #amountInput>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-6 d-flex">
-      <button class="btn btn-success me-3">Add</button>
-      <button class="btn btn-danger me-3">Remove</button>
-      <button class="btn btn-primary me-3">Clear</button>
+      <button class="btn btn-success me-3" type="submit" (click)="onAddItem()">Add</button>
+      <button class="btn btn-danger me-3" type="button">Remove</button>
+      <button class="btn btn-primary me-3" type="button">Clear</button>
     </div>
   </div>
 </div>

@@ -6,20 +6,8 @@
 <hr>
 <div class="row d-flex justify-content-center">
   <div class="col-xs-12 col-md-10">
-    <div class="card mb-3" *ngFor="let recipe of recipes">
-      <div class="row g-0">
-        <div class="col-md-4 ratio ratio-4x3">
-          <img [src]="recipe.imagePath" class="img img-fluid" [alt]="recipe.description">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{recipe.name}}</h5>
-            <p class="card-text">{{recipe.description}}</p>
-            <a href="#" class="stretched-link"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <app-recipe-item></app-recipe-item>
+    <app-recipe-item *ngFor="let recipeEl of recipes"
+    [recipe]="recipeEl"
+    (recipeSelected)="onRecipeSelected(recipeEl)"></app-recipe-item>
   </div>
 </div>

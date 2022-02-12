@@ -1,17 +1,20 @@
 <div class="row mt-3">
   <div class="col-xs-12">
-    <img src="" alt="" class="img-responsive">
+    <div class="container ratio ratio-4x3">
+      <img [src]="recipe.imagePath" alt="{{recipe.description}}" class="img img-responsive">
+    </div>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>Recipe Name</h1>
+    <h1>{{ recipe.name }}</h1>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
     <div class="btn-group" role="group">
-      <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+        aria-expanded="false">
         Manage Recipe
       </button>
       <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -24,7 +27,7 @@
 </div>
 <div class="row mt-3">
   <div class="col-xs-12">
-    Description
+    {{ recipe.description }}
   </div>
 </div>
 <div class="row mt-3">
