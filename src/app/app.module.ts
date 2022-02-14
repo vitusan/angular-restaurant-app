@@ -1,3 +1,5 @@
+import { ShoppingListService } from './shopping-list/shoppingList.service';
+import { DropdownDirective } from './shared/dropdown.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,11 +24,12 @@ import { FooterComponent } from './footer/footer.component';
     ShoppingListComponent,
     ShoppingEditComponent,
     FooterComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
