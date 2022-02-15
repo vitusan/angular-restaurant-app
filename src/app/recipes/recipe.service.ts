@@ -31,6 +31,11 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
+  getRecipeById(id: number) {
+    // id começa em 1
+    return this.recipes[id-1];
+  }
+
   updateShoppingList(recipe: Recipe) {
     this.shoppingListService.addIngredients(recipe.ingredients);
   }

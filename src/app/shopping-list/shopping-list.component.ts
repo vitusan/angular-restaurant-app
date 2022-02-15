@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { Ingredient } from './../shared/ingredient.model';
 import { ShoppingListService } from './shoppingList.service';
+
 
 @Component({
   selector: 'app-shopping-list',

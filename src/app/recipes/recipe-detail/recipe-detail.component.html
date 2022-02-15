@@ -19,8 +19,8 @@
       </button>
       <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
         <li><a class="dropdown-item" (click)="onAddToSL()" style="cursor: pointer;">Add to Shopping List</a></li>
-        <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
-        <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+        <li><a class="dropdown-item" style="cursor: pointer;" [routerLink]="['edit']">Edit Recipe</a></li>
+        <li><a class="dropdown-item" style="cursor: pointer;">Delete Recipe</a></li>
       </ul>
     </div>
   </div>
