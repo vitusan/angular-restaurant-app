@@ -5,6 +5,7 @@ export class ShoppingListService {
 
   ingredientAdded = new Subject<Ingredient[]>();
   ingredientRemoved = new Subject<Ingredient[]>();
+  ingredientEditingStarted = new Subject<number>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Tomatoe', 1),
@@ -27,6 +28,10 @@ export class ShoppingListService {
       this.ingredients.splice(this.ingredients.indexOf(ingredient), 1);
       this.ingredientRemoved.next(this.ingredients);
     }
+  }
+
+  getIngredient(index: number): Ingredient {
+    return this.ingredients[index];
   }
 
   getIngredients(): Ingredient[] {

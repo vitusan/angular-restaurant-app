@@ -1,23 +1,34 @@
 <div class="row">
-  <div class="col-10">
-    <div class="row my-3">
-      <div class="col-8 col-md-7">
-        <label for="name" class="form-label">Name</label>
-        <input type="email" class="form-control" id="name" name="name"
-        #nameInput>
-      </div>
-      <div class="col-4 col-md-2 col-lg-2 col-xxl-1">
-        <label for="amount" class="form-label">Qty</label>
-        <input type="number" class="form-control" id="amount" name="amount"
-        #amountInput>
+  <form [formGroup]="ingredientForm" (ngSubmit)="onAddItem()">
+    <div class="col-10">
+      <div class="row my-3">
+        <div class="col-8 col-md-7">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Ingredient name..." #nameInput
+            formControlName="nameInput"
+            [ngClass]="{ 'is-invalid': controls.nameInput.touched && controls.nameInput.invalid }">
+          <div class="invalid-feedback">
+            <div>Ingredient name is required</div>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 col-lg-2 col-xxl-1">
+          <label for="amount" class="form-label">Qty</label>
+          <input type="number" class="form-control" id="amount" name="amount" #amountInput formControlName="amountInput"
+            [ngClass]="{ 'is-invalid': controls.amountInput.touched && controls.amountInput.invalid }">
+          <div class="invalid-feedback">
+            <div *ngIf="controls.amountInput.errors?.min">Ingredient qty must be at least One!</div>
+            <div *ngIf="controls.amountInput.errors?.required">Ingredient qty must be specified!</div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-6 d-flex">
-      <button class="btn btn-success me-3" type="submit" (click)="onAddItem()">Add</button>
-      <button class="btn btn-danger me-3" type="button" (click)="onRemoveItem()">Remove</button>
-      <button class="btn btn-primary me-3" type="button">Clear</button>
+    <div class="row">
+      <div class="col-6 d-flex">
+        <button class="btn btn-success me-3" type="submit" [disabled]="!ingredientForm.valid">Add</button>
+        <button class="btn btn-danger me-3" type="button" (click)="onRemoveItem()"
+          [disabled]="!ingredientForm.valid">Remove</button>
+        <button class="btn btn-primary me-3" type="button" [disabled]="!ingredientForm.dirty" (click)="resetForm()">Clear</button>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
